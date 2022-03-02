@@ -6,6 +6,7 @@ import axios from 'axios';
 // import Form from 'react-bootstrap/Form';
 // import Navbar from 'react-bootstrap/Navbar';
 import Nav from './pages/Nav';
+import Characters from './pages/Characters';
 import './App.css';
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
 		<div>
       <Nav />
       <Routes>
-        <Route/>
+        <Route path = 'characters' element = {<Characters />}/>
       </Routes>
 		</div>
 	);
