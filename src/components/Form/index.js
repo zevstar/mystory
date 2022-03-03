@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import './styles.css';
 
-const Form = ({fetchCharacters}) => {
+const Form = ({ fetchCharacters }) => {
 	const [childname, setChildname] = useState('');
 	const [parent1, setParent1] = useState('');
 	const [parent2, setParent2] = useState('');
@@ -11,8 +11,6 @@ const Form = ({fetchCharacters}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log("handle is submitted")
-
         const newCharacter = {
             childname: childname,
             parent1: parent1,
@@ -21,19 +19,12 @@ const Form = ({fetchCharacters}) => {
             donor2: donor2
         }
 
-
-        try {
-            
-
+        try {          
             const response = await axios.post('http://localhost:8080/api/v1/add/childname', newCharacter)
-
             fetchCharacters()
-            console.log("this is the response", response)
-
         } catch(err) {
-            console.log("this is the error")
             console.log(err)
-        }
+        }    
 
     }
   

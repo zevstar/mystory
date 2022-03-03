@@ -1,4 +1,4 @@
-// 223 4:34
+// 223 5:42
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Form from '../../components/Form';
@@ -21,8 +21,9 @@ const Characters = () => {
 		} catch (err) {
 			console.log(err);
 		}
-	};
-	console.log('this is our state', characters);
+	}
+	
+
 	return (
 		<>
             <Form fetchCharacters={fetchCharacters}/>
