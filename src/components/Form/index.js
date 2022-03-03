@@ -9,25 +9,35 @@ const Form = ({ fetchCharacters }) => {
 	const [donor1, setDonor1] = useState('');
 	const [donor2, setDonor2] = useState('');
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        const newCharacter = {
-            childname: childname,
-            parent1: parent1,
-            parent2: parent2,
-            donor1: donor1,
-            donor2: donor2
-        }
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		const newCharacter = {
+			childname: childname,
+			parent1: parent1,
+			parent2: parent2,
+			donor1: donor1,
+			donor2: donor2,
+		};
 
-        try {          
-            const response = await axios.post('http://localhost:8080/api/v1/add/childname', newCharacter)
-            fetchCharacters()
-        } catch(err) {
-            console.log(err)
-        }    
+		try {
+			const response = await axios.post(
+				'http://localhost:8080/api/v1/add/childname',
+				newCharacter)
 
-    }
-  
+            if(response.status === 200) {
+                setChildname('')
+				setParent1('')
+				setParent2('')
+				setDonor1('')
+				setDonor2('')
+            }
+			fetchCharacters();
+		
+		} catch (err) {
+			console.log(err);
+		}
+	}
+
 	return (
 		<form id='form-container' onSubmit={handleSubmit}>
 			<div className='form-group row'>
@@ -42,6 +52,7 @@ const Form = ({ fetchCharacters }) => {
 						className='form-control'
 						id='colFormLabel'
 						placeholder='Enter name of Child here'
+                        value={childname}
 						onChange={(e) => setChildname(e.target.value)}
 					/>
 				</div>
@@ -55,6 +66,7 @@ const Form = ({ fetchCharacters }) => {
 						className='form-control'
 						id='colFormLabel'
 						placeholder='Enter name of Parent 1 here'
+                        value={parent1}
 						onChange={(e) => setParent1(e.target.value)}
 					/>
 				</div>
@@ -68,6 +80,7 @@ const Form = ({ fetchCharacters }) => {
 						className='form-control'
 						id='colFormLabel'
 						placeholder='Enter name of Parent 2 here'
+                        value={parent2}
 						onChange={(e) => setParent2(e.target.value)}
 					/>
 				</div>
@@ -81,6 +94,7 @@ const Form = ({ fetchCharacters }) => {
 						className='form-control'
 						id='colFormLabel'
 						placeholder='Enter name of Donor 1 here'
+                        value={donor1}
 						onChange={(e) => setDonor1(e.target.value)}
 					/>
 				</div>
@@ -94,6 +108,7 @@ const Form = ({ fetchCharacters }) => {
 						className='form-control'
 						id='colFormLabel'
 						placeholder='Enter name of Donor 2 here'
+                        value={donor2}
 						onChange={(e) => setDonor2(e.target.value)}
 					/>
 				</div>
