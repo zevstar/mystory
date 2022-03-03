@@ -2,7 +2,10 @@ import { useState } from 'react';
 import axios from 'axios';
 import './styles.css';
 
-const Form = ({ fetchCharacters, editForm }) => {
+const Form = ({ fetchCharacters, editForm, characterToEdit }) => {
+
+    console.log('Edit character', characterToEdit)
+
 	const [childname, setChildname] = useState('');
 	const [parent1, setParent1] = useState('');
 	const [parent2, setParent2] = useState('');
@@ -20,17 +23,26 @@ const Form = ({ fetchCharacters, editForm }) => {
 		};
 
 		try {
-			const response = await axios.post(
-				'http://localhost:8080/api/v1/add/childname',
-				newCharacter)
+            if(editForm) {
+                const response = await axios.put(
+                    `http://localhost:8080/api/v1/childname/id/${characterToEdit.id}`,
+                    newCharacter)
+            } else {
+                const response = await axios.post(
+                    'http://localhost:8080/api/v1/add/childname',
+                    newCharacter)
 
-            if(response.status === 200) {
-                setChildname('')
-				setParent1('')
-				setParent2('')
-				setDonor1('')
-				setDonor2('')
+                if(response.status === 200) {
+                    setChildname('')
+                    setParent1('')
+                    setParent2('')
+                    setDonor1('')
+                    setDonor2('')
+                }  
             }
+			
+
+           
 			fetchCharacters();
 		
 		} catch (err) {
@@ -51,7 +63,7 @@ const Form = ({ fetchCharacters, editForm }) => {
 					<input
 						className='form-control'
 						id='colFormLabel'
-						placeholder='Enter name of Child here'
+						placeholder={characterToEdit.childname}
                         value={childname}
 						onChange={(e) => setChildname(e.target.value)}
 					/>
@@ -65,7 +77,7 @@ const Form = ({ fetchCharacters, editForm }) => {
 					<input
 						className='form-control'
 						id='colFormLabel'
-						placeholder='Enter name of Parent 1 here'
+						placeholder={characterToEdit.parent1}
                         value={parent1}
 						onChange={(e) => setParent1(e.target.value)}
 					/>
@@ -79,7 +91,7 @@ const Form = ({ fetchCharacters, editForm }) => {
 					<input
 						className='form-control'
 						id='colFormLabel'
-						placeholder='Enter name of Parent 2 here'
+						placeholder={characterToEdit.parent2}
                         value={parent2}
 						onChange={(e) => setParent2(e.target.value)}
 					/>
@@ -93,7 +105,7 @@ const Form = ({ fetchCharacters, editForm }) => {
 					<input
 						className='form-control'
 						id='colFormLabel'
-						placeholder='Enter name of Donor 1 here'
+						placeholder={characterToEdit.donor1}
                         value={donor1}
 						onChange={(e) => setDonor1(e.target.value)}
 					/>
@@ -107,7 +119,7 @@ const Form = ({ fetchCharacters, editForm }) => {
 					<input
 						className='form-control'
 						id='colFormLabel'
-						placeholder='Enter name of Donor 2 here'
+						placeholder={characterToEdit.donor2}
                         value={donor2}
 						onChange={(e) => setDonor2(e.target.value)}
 					/>

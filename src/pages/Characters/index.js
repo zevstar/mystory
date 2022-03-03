@@ -5,7 +5,8 @@ import Form from '../../components/Form';
 
 const Characters = () => {
 	const [characters, setCharacters] = useState([]);
-    const [editForm, setEditForm] = useState(false)
+    const [editForm, setEditForm] = useState(false);
+    const [characterToEdit, setCharacterToEdit] = useState({})
 
 	useEffect(() => {
 		fetchCharacters();
@@ -34,10 +35,19 @@ const Characters = () => {
 			console.log(err);
 		}
 	};
+    const handleEdit = (character) => {
+        setEditForm(true)
+        setCharacterToEdit(character)
+    }
 
 	return (
 		<>
-			<Form fetchCharacters={fetchCharacters} editForm={editForm}/>
+			<Form
+                fetchCharacters={fetchCharacters}
+                editForm={editForm}
+                characterToEdit={characterToEdit}
+
+            />
 
 			<table className='table table-striped'>
 				<thead>
@@ -63,14 +73,14 @@ const Characters = () => {
 
                                 <i
                                     className="bi bi-pencil-fill"
-                                    onClick={() => setEditForm(true)}>
+                                    onClick={() =>handleEdit(character)}>
                                 </i>
 
 
-                                {/* <i 
+                                <i 
                                     className="bi bi-trash2-fill"
                                     onClick={() => deleteCharacter(character.id)}>
-                                </i> */}
+                                </i>
 
                                 
 
