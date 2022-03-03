@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import './styles.css';
 
-const Form = () => {
+const Form = ({fetchCharacters}) => {
 	const [childname, setChildname] = useState('');
 	const [parent1, setParent1] = useState('');
 	const [parent2, setParent2] = useState('');
@@ -11,28 +11,37 @@ const Form = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        try {
-            const newCharacter = {
-                childname: childname,
-                parent1: parent1,
-                parent2: parent2,
-                donor1: donor1,
-                donor2: donor2
-            }
+        console.log("handle is submitted")
 
-            const response = await axios.post('http://localhost:8080/ap1/v1/add/childname', newCharacter)
+        const newCharacter = {
+            childname: childname,
+            parent1: parent1,
+            parent2: parent2,
+            donor1: donor1,
+            donor2: donor2
+        }
+
+
+        try {
             
+
+            const response = await axios.post('http://localhost:8080/api/v1/add/childname', newCharacter)
+
+            fetchCharacters()
+            console.log("this is the response", response)
+
         } catch(err) {
+            console.log("this is the error")
             console.log(err)
         }
 
     }
-
+  
 	return (
-		<form id='form-container'>
-			<div className='form-group row' onSubmit={handleSubmit}>
+		<form id='form-container' onSubmit={handleSubmit}>
+			<div className='form-group row'>
 				<label
-					for='colFormLabelSm'
+					htmlFor='colFormLabelSm'
 					className='col-sm-2 col-form-label col-form-label-sm'
 				>
 					Child's name:
@@ -47,7 +56,7 @@ const Form = () => {
 				</div>
 			</div>
 			<div className='form-group row'>
-				<label for='colFormLabel' className='col-sm-2 col-form-label'>
+				<label htmlFor='colFormLabel' className='col-sm-2 col-form-label'>
 					Parent 1:
 				</label>
 				<div className='col-sm-10'>
@@ -60,7 +69,7 @@ const Form = () => {
 				</div>
 			</div>
 			<div className='form-group row'>
-				<label for='colFormLabel' className='col-sm-2 col-form-label'>
+				<label htmlFor='colFormLabel' className='col-sm-2 col-form-label'>
 					Parent 2:
 				</label>
 				<div className='col-sm-10'>
@@ -73,7 +82,7 @@ const Form = () => {
 				</div>
 			</div>
 			<div className='form-group row'>
-				<label for='colFormLabel' className='col-sm-2 col-form-label'>
+				<label htmlFor='colFormLabel' className='col-sm-2 col-form-label'>
 					Donor 1:
 				</label>
 				<div className='col-sm-10'>
@@ -86,7 +95,7 @@ const Form = () => {
 				</div>
 			</div>
 			<div className='form-group row'>
-				<label for='colFormLabel' className='col-sm-2 col-form-label'>
+				<label htmlFor='colFormLabel' className='col-sm-2 col-form-label'>
 					Donor 2:
 				</label>
 				<div className='col-sm-10'>
@@ -98,7 +107,7 @@ const Form = () => {
 					/>
 				</div>
 			</div>
-			<button class='btn btn-primary' type='submit'>
+			<button className='btn btn-primary' type='submit'>
 				Submit form
 			</button>
 		</form>

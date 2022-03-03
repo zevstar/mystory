@@ -25,7 +25,7 @@ const Characters = () => {
 	console.log('this is our state', characters);
 	return (
 		<>
-            <Form />
+            <Form fetchCharacters={fetchCharacters}/>
 
 			<table className='table table-striped'>
 				<thead>
@@ -41,7 +41,7 @@ const Characters = () => {
 					{characters.map((character) => {
 						return (
 							<tr key={character.id}>
-								<td data-label='Child' s Name>
+								<td data-label='Name of Child'>
 									{character.childname}
 								</td>
 								<td data-label='Parent 1'>{character.parent1}</td>
