@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import './styles.css';
 
-const Form = ({ fetchCharacters }) => {
+const Form = ({ fetchCharacters, editForm }) => {
 	const [childname, setChildname] = useState('');
 	const [parent1, setParent1] = useState('');
 	const [parent2, setParent2] = useState('');
@@ -114,7 +114,7 @@ const Form = ({ fetchCharacters }) => {
 				</div>
 			</div>
 			<button className='btn btn-primary' type='submit'>
-				Submit form
+				{editForm ? 'Edit' : 'Submit' }
 			</button>
 		</form>
 	);

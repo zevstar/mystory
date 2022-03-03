@@ -5,6 +5,7 @@ import Form from '../../components/Form';
 
 const Characters = () => {
 	const [characters, setCharacters] = useState([]);
+    const [editForm, setEditForm] = useState(false)
 
 	useEffect(() => {
 		fetchCharacters();
@@ -28,6 +29,7 @@ const Characters = () => {
 			const response = await axios.delete(
 				`http://localhost:8080/api/v1/childname/delete/${id}`
 			);
+            fetchCharacters()
 		} catch (err) {
 			console.log(err);
 		}
@@ -35,7 +37,7 @@ const Characters = () => {
 
 	return (
 		<>
-			<Form fetchCharacters={fetchCharacters} />
+			<Form fetchCharacters={fetchCharacters} editForm={editForm}/>
 
 			<table className='table table-striped'>
 				<thead>
@@ -58,8 +60,20 @@ const Characters = () => {
 								<td data-label='Donor 1'>{character.donor1}</td>
 								<td data-label='Donor 2'>{character.donor2}</td>
                                 <td data-label='Edit'>
-                                <i className="bi bi-trash2-fill"></i>
-                                <i class="bi bi-pencil-fill"></i>
+
+                                <i
+                                    className="bi bi-pencil-fill"
+                                    onClick={() => setEditForm(true)}>
+                                </i>
+
+
+                                {/* <i 
+                                    className="bi bi-trash2-fill"
+                                    onClick={() => deleteCharacter(character.id)}>
+                                </i> */}
+
+                                
+
                                 </td>
 							</tr>
 						);
