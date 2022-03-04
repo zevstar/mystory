@@ -25,7 +25,7 @@ const Form = ({ fetchCharacters, editForm, characterToEdit }) => {
 		try {
             if(editForm) {
                 const response = await axios.put(
-                    `http://localhost:8080/api/v1/childname/id/${characterToEdit.id}`,
+                    `http://localhost:8080/api/v1/childname/${characterToEdit.id}`,
                     newCharacter)
             } else {
                 const response = await axios.post(
