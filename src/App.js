@@ -7,6 +7,11 @@ import axios from 'axios';
 // import Navbar from 'react-bootstrap/Navbar';
 import Nav from './pages/Nav';
 import Characters from './pages/Characters';
+import Home from './pages/Home';
+import Smc from './pages/Smc';
+import Doubledonor from './pages/Doubledonor';
+import Donorsperm from './pages/Donorsperm';
+import Donoregg from './pages/Donoregg';
 import './App.css';
 
 function App() {
@@ -32,6 +37,11 @@ function App() {
       <Nav />
       <Routes>
         <Route path = 'characters' element = {<Characters />}/>
+		<Route path = '/' element= {<Home />} />
+		<Route path = 'smc' element ={<Smc />} />
+		<Route path = 'donorsperm' element = {<Donorsperm />} />
+		<Route path = 'donoregg' element = {<Donoregg />} />
+		<Route path = 'doubledonor' element = {<Doubledonor />} />
       </Routes>
 		</div>
 	);
