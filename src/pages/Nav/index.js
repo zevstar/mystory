@@ -47,9 +47,10 @@ const Nav = () => {
 							<ul className='dropdown-menu' aria-labelledby='navbarDropdown'>
 								<li>
 									<Link className='dropdown-item' to='smc' href='#'>
-										SMC Story
+										SMC
 									</Link>
 								</li>
+									<hr className='dropdown-divider'></hr>
 								<li>
 									<Link className='dropdown-item' to='donorsperm' href='#'>
 										Donor Sperm 
@@ -63,23 +64,31 @@ const Nav = () => {
 										Donor Egg
 									</Link>
 								</li>
+								<li>
+									<hr className='dropdown-divider'></hr>
+								</li>
+								<li>
+									<Link className='dropdown-item' to = 'doubledonor' href='#'>
+										Double Donor
+									</Link>
+								</li>
 							</ul>
 						</li>
-						<li className='nav-item'>
-							<Link className='nav-link' to='doubledonor'>Double Donor</Link>
-						</li>
+						{/* <li className='nav-item'>
+							<Link className='nav-link' to='doubledonor'>SomthingMore</Link>
+						</li> */}
 					</ul>
-					<form className='d-flex'>
+					{/* <form className='d-flex'>
 						<input
 							className='form-control me-2'
 							type='search'
 							placeholder='Search'
 							aria-label='Search'
-						/>
-						<button className='btn btn-outline-success' type='submit'>
+						/> */}
+						{/* <button className='btn btn-outline-success' type='submit'>
 							Search
-						</button>
-					</form>
+						</button> */}
+					{/* </form> */}
 				</div>
 			</div>
 		 </nav>
