@@ -1,4 +1,4 @@
-// 223 5:54
+
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Form from '../../components/Form';
@@ -86,12 +86,12 @@ const Characters = () => {
 
                                 </td>
 							</tr>
-						);
+						)
 					})}
 				</tbody>
 			</table>
 		</>
-	);
-};
+	)
+}
 
 export default Characters;
