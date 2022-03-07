@@ -33,7 +33,19 @@ const Smc = () => {
               <div className="card-body">
                 <h5 className="card-title">{character.childname}'s Story</h5>
                 {/* <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6> */}
-                <h6 className="card-text">`The birth story of {character.childname} is a beautiful tale.  It involves the stories of both {character.parent1} and {character.parent2}.  Who both agreed that it was best for them to use {character.donor1} and {character.donor2} to assist them along their journey.` </h6>
+                <h6 className="card-text">
+                    Let me tell you about a very special baby.
+
+                    To make a baby you need sperm from a man and an egg from a woman. There wasn't a man {character.parent1} loved well enough to make a baby with, so she found {character.donor1} who was kind, and gentle, and handsome, and smart. Sperm from {character.donor1} fertilized an egg from {character.parent1}, and my favorite baby was born nine months later.
+
+                    Do you know the name of this baby?
+
+                    It's you, {character.childname}!
+
+
+                    
+                    
+                     </h6>
                 
               </div>
             </div>
