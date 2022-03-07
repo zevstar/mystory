@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import './styles.css'
 
 
 const Nav = () => {
@@ -29,7 +30,7 @@ const Nav = () => {
 						</li>
 						<li className='nav-item'>
 							<Link className='nav-link' to='characters' href='#'>
-								Character Form
+								Family Input
 							</Link>
 						</li>
 						<li className='nav-item dropdown'>
