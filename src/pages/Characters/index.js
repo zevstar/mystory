@@ -57,6 +57,7 @@ const Characters = () => {
 						<th scope='col'>Parent2</th>
 						<th scope='col'>Donor1</th>
 						<th scope='col'>Donor2</th>
+						<th scope='col'>Story Type</th>
                         <th scope='col'>Edit</th>
 					</tr>
 				</thead>
@@ -69,6 +70,7 @@ const Characters = () => {
 								<td data-label='Parent 2'>{character.parent2}</td>
 								<td data-label='Donor 1'>{character.donor1}</td>
 								<td data-label='Donor 2'>{character.donor2}</td>
+								<td data-label='Story Type'>{character.storytype}</td>
                                 <td data-label='Edit'>
 
                                 <i

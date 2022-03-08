@@ -41,7 +41,7 @@ const Form = ({ fetchCharacters, editForm, characterToEdit }) => {
 					setParent2('');
 					setDonor1('');
 					setDonor2('');
-					setStoryType('SMC');
+					setStoryType('');
 				}
 			}
 

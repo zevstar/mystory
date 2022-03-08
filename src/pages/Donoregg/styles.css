@@ -6,9 +6,14 @@
 }
 #content-container {
 	display: flex;
-	height: 100%;
+	height: 50%;
 }
 
-.card-title2 {
-	color: blue;
+.flex-photo {
+    height: 50%;
 }
+
+.card-title1 {
+	color: green;
+}
+                        
