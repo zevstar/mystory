@@ -32,7 +32,10 @@ const Doubledonor = () => {
               <div className="card" key={character.id}>
               <div className="card-body">
                 <h5 className="card-title">{character.childname}'s Story</h5>
-               
+                <img
+					src='https://cdn.pixabay.com/photo/2017/01/31/00/44/boy-2022689_960_720.png'
+					alt='Family of three'
+				></img>
                 <h6 className="card-text">
                     Let me tell you about a very special baby.
 

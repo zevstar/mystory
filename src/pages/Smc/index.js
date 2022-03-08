@@ -33,6 +33,11 @@ const Smc = () => {
               <div className="card-body">
                 <h5 className="card-title">{character.childname}'s Story</h5>
                 {/* <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6> */}
+                <img
+					src='https://www.clipartmax.com/png/full/10-105708_mother-child-silhouette-clip-art-mother-holding-baby-silhouette-png.png'
+					alt='Mother holding infant'
+				></img>
+                                  
                 <h6 className="card-text">
                     Let me tell you about a very special baby.
 

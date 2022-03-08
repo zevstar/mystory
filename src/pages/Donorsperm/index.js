@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import './styles.css';
 
 
 const Donorsperm = () => {
@@ -32,7 +33,10 @@ const Donorsperm = () => {
               <div className="card" key={character.id}>
               <div className="card-body">
                 <h5 className="card-title">{character.childname}'s Story</h5>
-               
+                <img
+					src='https://st.depositphotos.com/1144687/2503/i/450/depositphotos_25033125-stock-photo-family-concept.jpg'
+					alt='Mother holding infant'
+				></img>
                 <h6 className="card-text">
                     Let me tell you about a very special baby.
 
@@ -41,10 +45,7 @@ const Donorsperm = () => {
                     Do you know the name of this baby?
 
                     It's you, {character.childname}!
-
-
-                    
-                    
+                
                      </h6>
                 
               </div>

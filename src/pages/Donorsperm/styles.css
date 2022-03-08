@@ -1,0 +1,16 @@
+.card-title {
+    width: 200px;
+            height: 200px;
+            /* text-align: center; */
+            font-size: 30px;
+            float: left;
+            font-weight: bold;
+}
+body {
+    margin: 20px;
+    text-align:center;
+}
+.card-text {
+    text-align: justify;
+            font-size: 22px;
+}

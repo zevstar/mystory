@@ -32,7 +32,10 @@ const Donoregg = () => {
               <div className="card" key={character.id}>
               
                 <h5 className="card-title">{character.childname}'s Story</h5>
-               
+                <img
+					src='https://images.pexels.com/photos/8576421/pexels-photo-8576421.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'
+					alt='Mother holding infant'
+				></img>
                 <h6 className="card-text">
                     Let me tell you about a very special baby.
 
